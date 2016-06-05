@@ -1,3 +1,3 @@
 # aydoo2016-ruby
 
-Este es el repositorio de Emiliano Veppo en lenguaje Ruby para la Materia Analisis y Diseño Orientado a Objetos
+Este es el repositorio de Emiliano Veppo en codigo Ruby para la materia Analisis y diseño orientado a objetos

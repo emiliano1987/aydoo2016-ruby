@@ -1,4 +1,5 @@
 require 'rspec'
+
 require_relative '../model/genera_resultado'
 class GeneradorDeResultadoSpec
   describe 'GeneradorDeResultado' do
@@ -7,7 +8,7 @@ class GeneradorDeResultadoSpec
       generaResultado = GeneradorDeResultado.new
       generaResultado.calculaResultadoFactoresPrimos(360)
       resultadoFinal = generaResultado.obtenerResultadoDescendente
-      arreglo = [2,2,2,3,3,5]      
+      arreglo = [2,2,2,3,3,5]
       expect(resultadoFinal).to match_array(arreglo)
     end
 
@@ -16,6 +17,22 @@ class GeneradorDeResultadoSpec
       generaResultado.calculaResultadoFactoresPrimos(360)
       resultadoFinal = generaResultado.obtenerResultadoAscendente
       arreglo = [5,3,3,2,2,2]
+      expect(resultadoFinal).to match_array(arreglo)
+    end
+
+    it 'Factores Primos descendente 12: 3 2 2 ' do
+      generaResultado = GeneradorDeResultado.new
+      generaResultado.calculaResultadoFactoresPrimos(12)
+      resultadoFinal = generaResultado.obtenerResultadoDescendente
+      arreglo = [3,2,2]
+      expect(resultadoFinal).to match_array(arreglo)
+    end
+
+    it 'Factores Primos 1: 1' do
+      generaResultado = GeneradorDeResultado.new
+      generaResultado.calculaResultadoFactoresPrimos(1)
+      resultadoFinal = generaResultado.obtenerResultadoAscendente
+      arreglo = [1]
       expect(resultadoFinal).to match_array(arreglo)
     end
 

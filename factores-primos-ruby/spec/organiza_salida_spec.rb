@@ -13,14 +13,14 @@ class OrganizaSalidaSpec
 
     it 'Imprime Archivo OrganizaSalidaFactorPrimo10.txt Factor Primo 10: 5 2' do
       salidaDeParametros = OrganizaSalida.new
-      parametros = [10,"sort=des","--output-file=OrganizaSalidaFactorPrimo10.txt"]
+      parametros = [10,"--sort=des","--output-file=OrganizaSalidaFactorPrimo10.txt"]
       salidaDeParametros.defineParamertos(parametros)
       expect(File.file?("OrganizaSalidaFactorPrimo10.txt"))
     end
 
     it 'Imprime Archivo OrganizaSalidaFactorPrimo200.txt Factor Primo 200: 2 2 2 5 5' do
       salidaDeParametros = OrganizaSalida.new
-      parametros = [200,"sort=des","--format=pretty","--output-file=OrganizaSalidaFactorPrimo200.txt"]
+      parametros = [200,"--sort=des","--format=pretty","--output-file=OrganizaSalidaFactorPrimo200.txt"]
       salidaDeParametros.defineParamertos(parametros)
       expect(File.file?("OrganizaSalidaFactorPrimo200.txt"))
     end
@@ -31,5 +31,12 @@ class OrganizaSalidaSpec
       salidaDeParametros.defineParamertos(parametros)
       expect(File.file?("OrganizaSalidaFactorPrimo44.txt"))
     end
-  end
+
+    it 'Se ejecuta una excepcion al ingresar erroneamente un parametro' do
+      salidaDeParametros = OrganizaSalida.new
+      parametros = [54,"output-file=OrganizaSalidaFactorPrimo54.txt"]
+      expect{salidaDeParametros.defineParamertos(parametros)}.to raise_error(ArgumentError)
+    end
+
+ end
 end
